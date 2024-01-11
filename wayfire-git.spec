@@ -1,4 +1,4 @@
-%global wayfire_commit d4360a8ab1a9555e511e7330e9dae65aa52cd6de
+%global wayfire_commit 2676a3cf6afeae5ffbde0ddf96525c99ae27d8cc
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
 %global wfconfig_commit 3da1c2254e645ba139b0db268349eb00d65162a6
