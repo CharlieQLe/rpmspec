@@ -1,3 +1,5 @@
+%global version 1
+
 %global wayfire_commit 2676a3cf6afeae5ffbde0ddf96525c99ae27d8cc
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
@@ -10,13 +12,10 @@
 %global wftouch_commit 8974eb0f6a65464b63dd03b842795cb441fb6403
 %global wftouch_shortcommit %(c=%{wftouch_commit}; echo ${c:0:7})
 
-%global wlroots_commit 767eedd3cbe9900687bf3b82236320dcd7b77aae
-%global wlroots_shortcommit %(c=%{wlroots_commit}; echo ${c:0:7})
-
 %global src0 wayfire-%{wayfire_commit}
 
 Name:           wayfire
-Version:        0.9.0~git%{wayfire_shortcommit}
+Version:        0.9.0^%{version}~git%{wayfire_shortcommit}
 Release:        %autorelease
 Summary:        3D wayland compositor
 License:        MIT
@@ -26,7 +25,6 @@ Source0:        https://github.com/WayfireWM/wayfire/archive/%{wayfire_commit}/w
 Source1:        https://github.com/WayfireWM/wf-utils/archive/%{wfutils_commit}/wf-utils-%{wfutils_shortcommit}.tar.gz
 Source2:        https://github.com/WayfireWM/wf-touch/archive/%{wftouch_commit}/wf-touch-%{wftouch_shortcommit}.tar.gz
 Source3:        https://github.com/WayfireWM/wf-config/archive/%{wfconfig_commit}/wf-touch-%{wfconfig_shortcommit}.tar.gz
-Source4:        https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/%{wlroots_commit}/wlroots-%{wlroots_shortcommit}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -42,8 +40,6 @@ BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gbm)
 BuildRequires:  pkgconfig(glesv2)
 BuildRequires:  pkgconfig(glslang)
-BuildRequires:  pkgconfig(hwdata)
-BuildRequires:  pkgconfig(libdisplay-info)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libinput) >= 1.7.0
 BuildRequires:  pkgconfig(libjpeg)
@@ -59,16 +55,13 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.12
 BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  pkgconfig(xcb-errors)
-BuildRequires:  pkgconfig(xcb-ewmh)
-BuildRequires:  pkgconfig(xcb-renderutil)
+BuildRequires:  pkgconfig(wlroots) >= 0.17.0
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(xwayland)
 
 Provides:       bundled(wf-touch) = 0.0~git%{wftouch_commit}
 Provides:       bundled(wf-utils) = 0.0~git%{wfutils_commit}
 Provides:       bundled(wf-config) = 0.9.0~git%{wfconfig_commit}
-Provides:       bundled(wlroots) = 0.17.0~git%{wlroots_commit}
 
 %description
 Wayfire is a 3D Wayland compositor, inspired by Compiz and based on wlroots.
@@ -87,12 +80,11 @@ Development files for %{name}.
 tar -xf %{SOURCE1} -C subprojects/wf-utils --strip=1
 tar -xf %{SOURCE2} -C subprojects/wf-touch --strip=1
 tar -xf %{SOURCE3} -C subprojects/wf-config --strip=1
-tar -xf %{SOURCE4} -C subprojects/wlroots --strip=1
 
 %build
 %meson                            \
     -Duse_system_wfconfig=disabled \
-    -Duse_system_wlroots=disabled  \
+    -Duse_system_wlroots=enabled  \
     %{nil}
 
 %meson_build
@@ -102,7 +94,6 @@ install -D -p -m 0644 %{name}.desktop %{buildroot}%{_datadir}/wayland-sessions/%
 rm -f %{buildroot}%{_libdir}/libwftouch.a
 # Duplicate man file
 rm -f %{buildroot}%{_prefix}/man/%{name}.1
-rm -f %{buildroot}%{_libdir}/libwlroots.a
 rm -rf %{buildroot}%{_prefix}/lib
 
 %files
@@ -114,13 +105,11 @@ rm -rf %{buildroot}%{_prefix}/lib
 %{_libdir}/%{name}/
 %{_libdir}/libwf-config.so*
 %{_libdir}/libwf-utils.so*
-%{_libdir}/libwlroots.so*
 %{_libdir}/lib%{name}-blur-base.so
 %{_mandir}/man1/*.1*
 
 %files devel
 %{_includedir}/%{name}/
-%{_includedir}/wlr/
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
