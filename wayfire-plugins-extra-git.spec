@@ -18,6 +18,7 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  libevdev-devel
 BuildRequires:  meson >= 0.56.0
+BuildRequires:  cmake(glm)
 
 BuildRequires:  pkgconfig(cairo)
 BuildRequires:  pkgconfig(giomm-2.4)
