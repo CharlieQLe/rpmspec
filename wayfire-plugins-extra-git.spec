@@ -1,4 +1,4 @@
-%global version 1
+%global version 2
 %global oname wayfire-plugins-extra
 
 %global wpe_commit 5386f5219eb2071dfd255836d91ef953d779c47f
