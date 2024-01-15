@@ -1,4 +1,5 @@
 %global version 1
+%global oname wayfire
 
 %global wayfire_commit 2676a3cf6afeae5ffbde0ddf96525c99ae27d8cc
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
@@ -14,7 +15,7 @@
 
 %global src0 wayfire-%{wayfire_commit}
 
-Name:           wayfire-git
+Name:           %{oname}-git
 Version:        0.9.0^%{version}~git%{wayfire_shortcommit}
 Release:        %autorelease
 Summary:        3D wayland compositor
@@ -70,11 +71,11 @@ It aims to create a customizable, extendable and lightweight environment
 without sacrificing its appearance.
 
 %package        devel
-Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Summary:        Development files for %{oname}
+Requires:       %{oname}%{?_isa} = %{version}-%{release}
 
 %description    devel
-Development files for %{name}.
+Development files for %{oname}.
 
 %prep
 %setup -n %src0
@@ -91,26 +92,26 @@ tar -xf %{SOURCE3} -C subprojects/wf-config --strip=1
 %meson_build
 %install
 %meson_install
-install -D -p -m 0644 %{name}.desktop %{buildroot}%{_datadir}/wayland-sessions/%{name}.desktop
+install -D -p -m 0644 %{oname}.desktop %{buildroot}%{_datadir}/wayland-sessions/%{oname}.desktop
 rm -f %{buildroot}%{_libdir}/libwftouch.a
 # Duplicate man file
-rm -f %{buildroot}%{_prefix}/man/%{name}.1
+rm -f %{buildroot}%{_prefix}/man/%{oname}.1
 rm -rf %{buildroot}%{_prefix}/lib
 
 %files
 %license LICENSE
-%doc README.md %{name}.ini
-%{_bindir}/%{name}
-%{_datadir}/%{name}/
+%doc README.md %{oname}.ini
+%{_bindir}/%{oname}
+%{_datadir}/%{oname}/
 %{_datadir}/wayland-sessions/*.desktop
-%{_libdir}/%{name}/
+%{_libdir}/%{oname}/
 %{_libdir}/libwf-config.so*
 %{_libdir}/libwf-utils.so*
-%{_libdir}/lib%{name}-blur-base.so
+%{_libdir}/lib%{oname}-blur-base.so
 %{_mandir}/man1/*.1*
 
 %files devel
-%{_includedir}/%{name}/
+%{_includedir}/%{oname}/
 %{_libdir}/pkgconfig/*.pc
 
 %changelog

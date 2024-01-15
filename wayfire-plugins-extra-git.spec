@@ -1,11 +1,12 @@
 %global version 1
+%global oname wayfire-plugins-extra
 
 %global wpe_commit 5386f5219eb2071dfd255836d91ef953d779c47f
 %global wpe_shortcommit %(c=%{wpe_commit}; echo ${c:0:7})
 
 %global src0 wayfire-plugins-extra-%{wpe_commit}
 
-Name:           wayfire-plugins-extra-git
+Name:           %{oname}-git
 Version:        0.9.0^%{version}~git%{wpe_shortcommit}
 Release:        %autorelease
 Summary:        Additional plugins for Wayfire
@@ -31,13 +32,6 @@ BuildRequires:  pkgconfig(wayland-server)
 
 %description
 Additional plugins for Wayfire
-
-%package        devel
-Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-
-%description    devel
-Development files for %{name}.
 
 %prep
 %setup -n %src0
