@@ -5,7 +5,7 @@
 
 %global src0 wayfire-plugins-extra-%{wpe_commit}
 
-Name:           wayfire-plugins-extra
+Name:           wayfire-plugins-extra-git
 Version:        0.9.0^%{version}~git%{wpe_shortcommit}
 Release:        %autorelease
 Summary:        Additional plugins for Wayfire

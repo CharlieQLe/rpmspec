@@ -14,7 +14,7 @@
 
 %global src0 wayfire-%{wayfire_commit}
 
-Name:           wayfire
+Name:           wayfire-git
 Version:        0.9.0^%{version}~git%{wayfire_shortcommit}
 Release:        %autorelease
 Summary:        3D wayland compositor
@@ -62,6 +62,7 @@ BuildRequires:  pkgconfig(xwayland)
 Provides:       bundled(wf-touch) = 0.0~git%{wftouch_commit}
 Provides:       bundled(wf-utils) = 0.0~git%{wfutils_commit}
 Provides:       bundled(wf-config) = 0.9.0~git%{wfconfig_commit}
+Conflicts:	wayfire
 
 %description
 Wayfire is a 3D Wayland compositor, inspired by Compiz and based on wlroots.
