@@ -1,7 +1,7 @@
-%global version 3
+%global version 4
 %global oname wayfire
 
-%global wayfire_commit 2d11be00a6bd62f06e3ae597a285f0b49f5eb926
+%global wayfire_commit a7a01ac029a313618b22121cc0a75a90400113fd
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
 %global wfconfig_commit 3da1c2254e645ba139b0db268349eb00d65162a6
@@ -56,7 +56,7 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.12
 BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  pkgconfig(wlroots) >= 0.17.0
+BuildRequires:  pkgconfig(wlroots) >= 0.17.1
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(xwayland)
 
