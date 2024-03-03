@@ -1,7 +1,7 @@
-%global version 5
+%global version 6
 %global oname wayfire
 
-%global wayfire_commit 2e0926f8f5a1c3834c51e97673bfbf074f4506ac
+%global wayfire_commit 80569f47cf71c6dc72fbcb840c1bbf806a37c998
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
 %global wfconfig_commit 3da1c2254e645ba139b0db268349eb00d65162a6
