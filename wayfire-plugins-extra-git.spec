@@ -1,7 +1,7 @@
-%global version 10
+%global version 11
 %global oname wayfire-plugins-extra
 
-%global wpe_commit e14b0c97372a9ee0b2f29ea785bead86d04da735
+%global wpe_commit 740e3b6eec525d517143ab047d615a2a40d14621
 %global wpe_shortcommit %(c=%{wpe_commit}; echo ${c:0:7})
 
 %global src0 wayfire-plugins-extra-%{wpe_commit}
