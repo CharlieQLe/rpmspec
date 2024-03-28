@@ -1,4 +1,4 @@
-%global version 12
+%global version 13
 %global oname wayfire
 
 %global wayfire_commit 467683a9cd79eab98dafa9aac2fb64be305a631c
@@ -56,7 +56,7 @@ BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.12
 BuildRequires:  pkgconfig(wayland-server)
-BuildRequires:  pkgconfig(wlroots) >= 0.17.1
+BuildRequires:  pkgconfig(wlroots) >= 0.17.2
 BuildRequires:  pkgconfig(xkbcommon)
 BuildRequires:  pkgconfig(xwayland)
 

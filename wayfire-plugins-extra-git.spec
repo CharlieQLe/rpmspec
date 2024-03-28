@@ -1,4 +1,4 @@
-%global version 12
+%global version 13
 %global oname wayfire-plugins-extra
 
 %global wpe_commit 9f15d609a1388db780f1c355ecaf7a998bd35a43
@@ -26,7 +26,7 @@ BuildRequires:  pkgconfig(giomm-2.4)
 BuildRequires:  pkgconfig(nlohmann_json)
 BuildRequires:  pkgconfig(wayfire) >= 0.9.0
 BuildRequires:  pkgconfig(wf-config) >= 0.9.0
-BuildRequires:  pkgconfig(wlroots) >= 0.17.1
+BuildRequires:  pkgconfig(wlroots) >= 0.17.2
 BuildRequires:  pkgconfig(wayland-protocols) >= 1.12
 BuildRequires:  pkgconfig(wayland-server)
 
