@@ -1,16 +1,16 @@
-%global version 13
+%global version 14
 %global oname wayfire
 
-%global wayfire_commit 467683a9cd79eab98dafa9aac2fb64be305a631c
+%global wayfire_commit cf3dcaae280decb5a1b2d8be13e56c1196d8f389
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
-%global wfconfig_commit aba330e7e22bbbeb5147af6e2cb0f30fb840cdd8
+%global wfconfig_commit 34f3bf9f075f0755acde6e0aba2727cb5110ab81
 %global wfconfig_shortcommit %(c=%{wfconfig_commit}; echo ${c:0:7})
 
 %global wfutils_commit 15f8e16721585ae3eaf278ba71d7064237eb23f5
 %global wfutils_shortcommit %(c=%{wfutils_commit}; echo ${c:0:7})
 
-%global wftouch_commit 8974eb0f6a65464b63dd03b842795cb441fb6403
+%global wftouch_commit b8b844fa873871f90a9cf0768c8ae8c92ad49f34
 %global wftouch_shortcommit %(c=%{wftouch_commit}; echo ${c:0:7})
 
 %global src0 wayfire-%{wayfire_commit}
