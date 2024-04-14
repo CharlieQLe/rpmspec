@@ -18,6 +18,7 @@ Source0:        https://github.com/CharlieQLe/wayfire-rounded-corners/archive/%{
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  meson >= 0.56.0
+BuildRequires:  cmake(glm)
 
 BuildRequires:  pkgconfig(wayfire) >= 0.9.0
 BuildRequires:  pkgconfig(wf-config) >= 0.9.0
