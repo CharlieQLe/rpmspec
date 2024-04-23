@@ -1,0 +1,10 @@
+--- src/duration.cpp.orig	2024-04-22 22:00:36.004499323 -0400
++++ src/duration.cpp	2024-04-22 22:00:30.722448054 -0400
+@@ -4,6 +4,7 @@
+ #include <chrono>
+ #include <cmath>
+ #include <map>
++#include <algorithm>
+ 
+ namespace wf
+ {

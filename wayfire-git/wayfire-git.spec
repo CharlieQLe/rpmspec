@@ -1,10 +1,10 @@
-%global version 15
+%global version 16
 %global oname wayfire
 
-%global wayfire_commit d675db63a5f1a9fe124f46ca6d1bfab1e5002d24
+%global wayfire_commit e2d4e7675127b603c4bf865154dcebdbeb71eaf6
 %global wayfire_shortcommit %(c=%{wayfire_commit}; echo ${c:0:7})
 
-%global wfconfig_commit 34f3bf9f075f0755acde6e0aba2727cb5110ab81
+%global wfconfig_commit 5cd0c8a1ae4ca39be4bc4023d36f0c524edcd39e
 %global wfconfig_shortcommit %(c=%{wfconfig_commit}; echo ${c:0:7})
 
 %global wfutils_commit 15f8e16721585ae3eaf278ba71d7064237eb23f5
@@ -25,7 +25,9 @@ URL:            https://github.com/WayfireWM/wayfire
 Source0:        https://github.com/WayfireWM/wayfire/archive/%{wayfire_commit}/wayfire-%{wayfire_shortcommit}.tar.gz
 Source1:        https://github.com/WayfireWM/wf-utils/archive/%{wfutils_commit}/wf-utils-%{wfutils_shortcommit}.tar.gz
 Source2:        https://github.com/WayfireWM/wf-touch/archive/%{wftouch_commit}/wf-touch-%{wftouch_shortcommit}.tar.gz
-Source3:        https://github.com/WayfireWM/wf-config/archive/%{wfconfig_commit}/wf-touch-%{wfconfig_shortcommit}.tar.gz
+Source3:        https://github.com/WayfireWM/wf-config/archive/%{wfconfig_commit}/wf-config-%{wfconfig_shortcommit}.tar.gz
+
+Patch0: wf-config-duration-incl.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -84,6 +86,7 @@ Development files for %{oname}.
 tar -xf %{SOURCE1} -C subprojects/wf-utils --strip=1
 tar -xf %{SOURCE2} -C subprojects/wf-touch --strip=1
 tar -xf %{SOURCE3} -C subprojects/wf-config --strip=1
+%patch -d subprojects/wf-config 0
 
 %build
 %meson                            \

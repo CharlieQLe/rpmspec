@@ -1,4 +1,4 @@
-%global version 1
+%global version 2
 %global oname wayfire-rounded-corners
 
 %global wfrc_commit 1e396e8b171df8703a1cb66585d14503e8e2292b
