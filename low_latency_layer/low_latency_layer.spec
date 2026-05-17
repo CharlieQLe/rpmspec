@@ -12,6 +12,7 @@ BuildRequires: gcc-c++
 BuildRequires: cmake
 BuildRequires: make
 BuildRequires: vulkan-headers
+BuildRequires: vulkan-loader-devel
 BuildRequires: vulkan-utility-libraries-devel
 
 Requires: vulkan-loader
