@@ -14,6 +14,8 @@ BuildRequires: make
 BuildRequires: vulkan-headers
 BuildRequires: vulkan-utility-libraries-devel
 
+Requires: vulkan-loader
+
 %description
 %summary
 
