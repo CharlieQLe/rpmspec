@@ -7,6 +7,7 @@ License: MIT
 URL: https://github.com/Korthos-Software/low_latency_layer
 Source: %url/archive/refs/tags/v%version.tar.gz
 
+BuildRequires: gcc
 BuildRequires: cmake
 BuildRequires: make
 BuildRequires: vulkan-headers
