@@ -1,5 +1,5 @@
 Name: low_latency_layer
-Version: 0.1.0
+Version: 0.2.0
 Release: %autorelease
 Summary: Vulkan layer for hardware agnostic input latency reduction.
 SourceLicense: MIT
