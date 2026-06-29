@@ -8,21 +8,6 @@ URL: https://github.com/Zhaith-Izaliel/iio-niri
 Source: %url/archive/v%version.tar.gz
 
 BuildRequires: cargo-rpm-macros
-BuildRequires: rust-anyhow-devel
-BuildRequires: rust-clap-devel
-BuildRequires: rust-clap-verbosity-flag-devel
-BuildRequires: rust-clap-verbosity-flag+default-devel
-BuildRequires: rust-clap_derive-devel
-BuildRequires: rust-clap_complete-devel
-BuildRequires: rust-clap_complete+default-devel
-BuildRequires: rust-dbus-devel
-BuildRequires: rust-dbus+default-devel
-BuildRequires: rust-env_logger-devel
-BuildRequires: rust-log-devel
-BuildRequires: rust-serde-devel
-BuildRequires: rust-serde_json-devel
-BuildRequires: rust-signal-hook-devel
-BuildRequires: rust-signal-hook+default-devel
 Requires: niri
 Requires: iio-sensor-proxy
 
