@@ -42,7 +42,6 @@ BuildRequires:  pkgconfig(gstreamer-video-1.0)
 BuildRequires:  pkgconfig(hidapi-libusb)
 BuildRequires:  pkgconfig(libavcodec)
 BuildRequires:  pkgconfig(libbsd)
-BuildRequires:  pkgconfig(libcjson)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libjpeg)
 BuildRequires:  pkgconfig(libonnxruntime)
@@ -103,6 +102,8 @@ Devel information for Monado.
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DCMAKE_INSTALL_LIBDIR=%{_lib}/%{name} \
   -DDRIVER_HANDTRACKING:BOOL=ON \
+  -DXRT_HAVE_SYSTEM_CJSON:BOOL=OFF \
+  -DBUILD_SHARED_LIBS=OFF
 
 %cmake_build
 
@@ -123,6 +124,10 @@ ln -sr %{buildroot}%{_libdir}/steamvr-monado/bin/linux64/driver_monado.so \
 install -m 0755 -vd %{buildroot}%{_sysconfdir}/ld.so.conf.d
 echo "%{_libdir}/%{name}" > %{buildroot}%{_sysconfdir}/ld.so.conf.d/%{name}.conf
 
+# Update manifest to point at ABI-stable name.
+sed -i -r \
+  -e 's|("MND_libmonado_path": ").*(")|\1../../../%{_lib}/%{name}/libmonado.so.25\2|' \
+  %{buildroot}%{_datadir}/openxr/1/openxr_monado.json
 
 %check
 cd %{_vpath_builddir}
